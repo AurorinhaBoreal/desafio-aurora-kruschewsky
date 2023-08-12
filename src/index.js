@@ -11,6 +11,7 @@ function addInput() {
 
         // Creating dinamic <input>
         var br = document.createElement("br")
+        br.id="br" + i;
         var inputO = document.createElement("input");
         inputO.className="addedInputO"
         inputO.type="text";
@@ -33,6 +34,25 @@ function addInput() {
     }
 
     
+}
+
+function removeInput() {
+    if (i > 1) {
+        console.log(i);
+        
+        // Selecting the Inputs
+        var removeBr = document.getElementById("br" + i);
+        var removeO = document.getElementById("getPed" + i);
+        var removeQ = document.getElementById("getQtd" + i);
+
+        // Removing Inputs
+        removeBr.remove();
+        removeO.remove();
+        removeQ.remove();
+        i--;
+    } else {
+        alert("Número mínimo de itens atingido!!")
+    }
 }
 
 function getInfo() {
@@ -68,23 +88,6 @@ function getInfo() {
         c++;
     }
     alert(checkout);
-    
-    // Get Quantity
-    let getQuantity = [];
-    c = 1;
-    while (c <= i) {
-        getQuantity.push(document.getElementById("getQtd"+c).value);
-        c++;
-    }
-    alert(getQuantity);
-    
-    // Formatting Itens and Quantity
-    // let checkout = [];
-    c = 0;
-    while (c <= getItens.length) {
-        checkout.push()
-    }
-
 
     // let itens = [cafe, chantily, suco, sanduiche, queijo, salgado, combo1, combo2]
 

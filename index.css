@@ -63,13 +63,22 @@ tbody tr:nth-child(odd){
 /* Button */
 .addingInputs{
     width: 4vw;
-    margin-top: 1vw;
-    margin-bottom: 2vw;
+    margin: 1vw 0.5vw 2vw 0;
     flex-wrap: wrap;
     text-align: center;
     font-family: 'Roboto Condensed', sans-serif;
     border-radius: 5px;
     border-color: greenyellow;
+}
+
+.removingInputs{
+    width: 4vw;
+    margin: 1vw 0.5vw 2vw 0;
+    flex-wrap: wrap;
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    border-radius: 5px;
+    border-color: rgb(255, 54, 47);
 }
 
 /* Order Input */

@@ -130,6 +130,7 @@ tbody tr:nth-child(odd){
 
 .buttonSubmit{
     font-family: 'Roboto Condensed', sans-serif;
+    font-size: medium;
     margin-bottom: 4vw;
     border-radius: 5px;
     border-color: rgb(0, 136, 255);

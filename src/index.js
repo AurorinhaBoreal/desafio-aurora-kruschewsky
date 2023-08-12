@@ -40,6 +40,7 @@ function getInfo() {
     alert("Running")
     alert(i);
 
+    // Formatting Payment Method - TENHO QUE ARRUMAR
     let getPag = document.getElementById("getMetPag").value;
     if (getPag == "0") {
         getPag = "Método de Pagamento não Indicado";
@@ -57,16 +58,18 @@ function getInfo() {
         }
     }
 
-
-    let getItens = [];
+    // Get Itens, Quantity e Array Checkout
+    let checkout = [];
     c = 1;
     while (c <=i) {
-        getItens.push(document.getElementById("getPed"+c).value);
+        let order;
+        order = document.getElementById("getPed"+c).value+','+document.getElementById("getQtd"+c).value;
+        checkout.push(order);
         c++;
     }
-    alert(getItens);
+    alert(checkout);
     
-
+    // Get Quantity
     let getQuantity = [];
     c = 1;
     while (c <= i) {
@@ -75,6 +78,14 @@ function getInfo() {
     }
     alert(getQuantity);
     
+    // Formatting Itens and Quantity
+    // let checkout = [];
+    c = 0;
+    while (c <= getItens.length) {
+        checkout.push()
+    }
+
+
     // let itens = [cafe, chantily, suco, sanduiche, queijo, salgado, combo1, combo2]
 
     // let precos = [3, 1.5, 6.2, 6.5, 2, 7.25, 9.5, 7.5]

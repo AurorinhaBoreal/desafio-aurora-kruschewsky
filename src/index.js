@@ -37,6 +37,7 @@ function addInput() {
     
 }
 
+// REMOVING INPUTS
 function removeInput() {
     if (i > 1) {
         console.log(i);
@@ -57,32 +58,42 @@ function removeInput() {
 }
 
 function getInfo() {
-    
-    alert("Running")
-    alert(i);
 
-    // Formatting Payment Method - TENHO QUE ARRUMAR
-    let getPag = document.getElementById("getMetPag").value;
-    if (getPag == "0") {
-        getPag = "Método de Pagamento não Indicado";
-        return alert(getPag);
-    } else {
-        if (getPag == "1") {
-            getPag = "credito";
-        } else {
-            if (getPag == "2") {
-                getPag = "debito";
-            } else {
-                getPag = "dinheiro";
-            }
-            
-        }
-    }
+    // Verification Payment Method
+    let getPag = document.getElementById("getPay").value;
+    let adjustment;
+    switch (true) {
+        // Empty Input
+        case (getPag == ""):
+            alert("Por favor, insira uma forma de pagamento!")
+            break;
 
-    // Get Itens, Quantity e Array Checkout
+        // Credito
+        case (getPag == "credito"): 
+            adjustment = 0.03
+            alert("cred")
+            break;
+
+        // Debito
+        case (getPag == "debito"): 
+            adjustment = 0
+            alert("deb")
+            break;
+
+        // Dinheiro
+        case (getPag == "dinheiro"): 
+            adjustment = 0.05
+            alert("din")
+            break;
+
+        // N/A
+        default: alert("Forma de Pagamento Inválida"); break;
+    };
+
+    // Get Itens, Quantity e Array Checkout - FEITO
     let checkout = [];
     c = 1;
-    while (c <=i) {
+    while (c <= i) {
         let order;
         order = document.getElementById("getPed"+c).value+','+document.getElementById("getQtd"+c).value;
         checkout.push(order);

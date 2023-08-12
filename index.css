@@ -1,0 +1,33 @@
+.container{
+    margin: auto;
+}
+/* Button */
+.addingInputs{
+    width: 4vw;
+    margin-top: 1vw;
+    margin-left: 4vw;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+/* Order Input */
+.inputO{
+    width: 10vw;
+    margin: 0.5vw 0.5vw 0 0.5vw;
+}
+
+/* Quantity Input */
+.inputQ{
+    width: 3vw;
+}
+
+/* Dinamic Inputs Order*/
+.addedInputO{
+    width: 10vw;
+    margin: 0vw 0.8vw 1vw 0.5vw;
+}
+
+/* Dinamic Inputs Quantity */
+.addedInputQ{
+    width: 3vw;
+}

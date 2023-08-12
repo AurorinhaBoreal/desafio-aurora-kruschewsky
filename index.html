@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caixa da Lanchonete</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="./src/page.js"></script>
+    <script src="./src/logic.js"></script>
+</head>
+<body>
+
+    <center>
+    <div class="container">
+        <h3>Cardápio</h3>
+        <h3>Informações:</h3>
+        <form id="container">
+            <p> <label for="MTP">Método de Pagamento:</label>
+                <select class="select" id="getMetPag" name="MTP" required>
+                    <option value="0">Forma de Pagamento</option>
+                    <option value="1">Crédito</option>
+                    <option value="2">Débito</option>
+                    <option value="3">Dinheiro</option>
+                </select>
+            </p>
+
+                <label for="Pedidos">Itens:</label> <input type="button" class="addingInputs" value="+" onclick="addInput()"/>
+                <br><br>
+                <input class="inputO" type="text" id="getPed1" name="Pedidos" required>
+                <input class="inputQ" type="number" id="getQtd1" max="10" required>
+
+            <div id="itens"> 
+            </div>
+
+            <label for="Calculo"></label>
+            <br>
+            <input type="button" class="buttonSubmit" value="Finalizar" name="Calculo" onclick="getInfo()">
+        </form>
+    </div>
+    </center>
+    
+</body>
+</html>

@@ -83,13 +83,24 @@ tbody tr:nth-child(odd){
     border-color: rgb(255, 54, 47);
 }
 
+/* Payment Input */
+.inputP{
+    width: 6vw;
+    margin: 1vw 0.5vw 0 0.5vw;
+    border: none;
+    border-bottom: 2px solid rgb(255, 189, 65);
+    border-radius: 5px;
+    text-align: center;
+}
+
 /* Order Input */
 .inputO{
-    width: 12vw;
+    width: 8vw;
     margin: 0.5vw 0.5vw 0 0.5vw;
     border: none;
     border-bottom: 2px solid rgb(255, 189, 65);
     border-radius: 5px;
+    text-align: center;
 }
 
 /* Quantity Input */
@@ -102,7 +113,7 @@ tbody tr:nth-child(odd){
 
 /* Dinamic Inputs Order*/
 .addedInputO{
-    width: 12vw;
+    width: 8vw;
     margin: 0vw 0.8vw 1vw 0.5vw;
     border: none;
     border-bottom: 2px solid rgb(255, 189, 65);

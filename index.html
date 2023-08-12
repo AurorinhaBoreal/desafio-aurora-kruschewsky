@@ -12,7 +12,7 @@
     <center>
 
         <div class="container">
-            <h2>Cardápio</h2>
+            <h2>Cardápio e Pagamento</h2>
             <p>
                 <table>
                     <thead>
@@ -67,6 +67,35 @@
                 </table>
             </p>
 
+            <p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Código</th>
+                            <th scope="col">Descrição</th>
+                            <th scope="col">Descontos e Taxas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">credito</th>
+                            <td>Crédito</td>
+                            <td>+3%</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">debito</th>
+                            <td>Débito</td>
+                            <td>---</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">dinheiro</th>
+                            <td>Dinheiro</td>
+                            <td>-5%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+
 
             <h2>Informações:</h2>
             <form id="container">
@@ -82,7 +111,7 @@
                     <label for="Pedidos">Itens:</label>
                     <br><br>
                     <input class="inputO" type="text" id="getPed1" name="Pedidos" required>
-                    <input class="inputQ" type="number" id="getQtd1" max="10" required>
+                    <input class="inputQ" type="number" id="getQtd1" min="1" max="10" required>
 
                 <div id="itens"> 
                 </div>

@@ -22,6 +22,7 @@ function addInput() {
         inputQ.className="addedInputQ"
         inputQ.type="number";
         inputQ.id="getQtd" + i;
+        inputQ.min="1"
         inputQ.max="10";
         inputQ.required = true;
 

@@ -3,7 +3,7 @@
 let i = 1;
 function addInput() {
     
-    if (i < 11) {
+    if (i < 10) {
         i++;
         console.log(i);
          // Selecting the Forms
@@ -38,7 +38,46 @@ function addInput() {
 function getInfo() {
     
     alert("Running")
-    console.log(i);
+    alert(i);
+
+    let getPag = document.getElementById("getMetPag").value;
+    if (getPag == "0") {
+        getPag = "Método de Pagamento não Indicado";
+        return alert(getPag);
+    } else {
+        if (getPag == "1") {
+            getPag = "credito";
+        } else {
+            if (getPag == "2") {
+                getPag = "debito";
+            } else {
+                getPag = "dinheiro";
+            }
+            
+        }
+    }
+
+
+    let getItens = [];
+    c = 1;
+    while (c <=i) {
+        getItens.push(document.getElementById("getPed"+c).value);
+        c++;
+    }
+    alert(getItens);
+    
+
+    let getQuantity = [];
+    c = 1;
+    while (c <= i) {
+        getQuantity.push(document.getElementById("getQtd"+c).value);
+        c++;
+    }
+    alert(getQuantity);
+    
+    // let itens = [cafe, chantily, suco, sanduiche, queijo, salgado, combo1, combo2]
+
+    // let precos = [3, 1.5, 6.2, 6.5, 2, 7.25, 9.5, 7.5]
     
 }
 

@@ -59,7 +59,7 @@ function removeInput() {
     }
 }
 
-function getInfo() {
+function validationCalculation() {
 
     // Itens e Preços Pré-Estabelecidos
     let itensRegistrados = ["cafe", "chantily", "suco", "sanduiche", "queijo", "salgado", "combo1", "combo2"];
@@ -183,6 +183,9 @@ function getInfo() {
         console.log(itens);
         c++;
     }
+
+    // Calculo
+    
     
 }
 

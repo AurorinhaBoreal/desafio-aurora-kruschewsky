@@ -3,7 +3,7 @@
 let i = 1;
 function addInput() {
     
-    if (i < 10) {
+    if (i < 8) {
         i++;
         console.log(i);
          // Selecting the Forms
@@ -40,7 +40,6 @@ function addInput() {
 // REMOVING INPUTS
 function removeInput() {
     if (i > 1) {
-        console.log(i);
         
         // Selecting the Inputs
         var removeBr = document.getElementById("br" + i);
@@ -52,6 +51,7 @@ function removeInput() {
         removeO.remove();
         removeQ.remove();
         i--;
+        console.log(i);
     } else {
         alert("Número mínimo de itens atingido!!")
     }
@@ -59,9 +59,11 @@ function removeInput() {
 
 function getInfo() {
 
-    // Verification Payment Method
+    // Getting Payment Method - FEITO
     let getPag = document.getElementById("getPay").value;
     let adjustment;
+
+    // Verification - FEITO?
     switch (true) {
         // Empty Input
         case (getPag == ""):
@@ -90,7 +92,7 @@ function getInfo() {
         default: alert("Forma de Pagamento Inválida"); break;
     };
 
-    // Get Itens, Quantity e Array Checkout - FEITO
+    // Formatting Itens, Quantity e Array Checkout
     let checkout = [];
     c = 1;
     while (c <= i) {

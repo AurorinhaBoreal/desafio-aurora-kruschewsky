@@ -133,6 +133,16 @@ tbody tr:nth-child(odd){
     font-family: 'Roboto Condensed', sans-serif;
     font-size: medium;
     margin-bottom: 4vw;
+    margin-right: 1vw;
     border-radius: 5px;
     border-color: rgb(0, 136, 255);
+}
+
+.buttonCalc{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: medium;
+    margin-bottom: 4vw;
+    margin-left: 1vw;
+    border-radius: 5px;
+    border-color: rgb(0, 204, 255);
 }

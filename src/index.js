@@ -61,6 +61,7 @@ function removeInput() {
 
 function validationCalculation() {
 
+    // VALIDAÇÃO
     // Itens e Preços Pré-Estabelecidos
     let itensRegistrados = ["cafe", "chantily", "suco", "sanduiche", "queijo", "salgado", "combo1", "combo2"];
 
@@ -171,7 +172,6 @@ function validationCalculation() {
         quantity.push(quantityItem);
         c++;
     };
-    alert(quantity);
 
     // Formatando Array de Itens
     let itens = [];
@@ -184,9 +184,36 @@ function validationCalculation() {
         c++;
     }
 
+    // CALCULO
+    // Itens e Preços Pré-Estabelecidos
+    itensRegistrados = ["cafe", "chantily", "suco", "sanduiche", "queijo", "salgado", "combo1", "combo2"];
+
+    precos = [3, 1.5, 6.2, 6.5, 2, 7.25, 9.5, 7.5];
+
     // Calculo
-    
-    
+    console.log("Este Array de itens, está vindo de outra função!! :D" +itens);
+
+    tamanho = itens.length - 1;
+    alert("Length"+tamanho);
+    n = 1;
+    while (n <= tamanho) {
+        itens[n-1];
+        alert("Array:"+itens[n-1]);
+        let codigo;
+        let quantidade;
+        codigo = itens[n-1].split(",");
+        alert("Separados:"+codigo[0]+" e "+codigo[1]);
+        codInd = itensRegistrados.indexOf(codigo[0]);
+        alert("Index:"+codInd);
+        itemPreco = parseFloat(precos[codInd]);
+        alert("O preço do "+codigo[0]+" é "+itemPreco);
+        quantidade = parseInt(codigo[1]);
+        alert(quantidade);
+        let valor;
+        valor = valor + (quantidade*itemPreco);
+        alert(valor)
+        n++;
+    }
 }
 
 

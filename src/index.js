@@ -100,30 +100,30 @@ function getInfo() {
     };
 
     // Validação de Itens
-    let itens = [];
+    let codItens = [];
     c = 1;
     while (c <= i) {
-        let codItem = document.getElementById("getPed"+c).value;
-        if (codItem == "" && i == "1") {
+        let item = document.getElementById("getPed"+c).value;
+        if (item == "" && i == "1") {
             alert("Não há itens no carrinho de compra!");
             console.log("Não foram inseridos itens no carrinho.");
             return;
         }
 
-        let valItem1 = itensRegistrados.indexOf(codItem);
+        let valItem1 = itensRegistrados.indexOf(item);
         if (valItem1 == "-1") {
             alert('Item inválido!');
-            console.log('O item "'+codItem+'" inserido no input '+c+' é inválido.');
+            console.log('O item "'+item+'" inserido no input '+c+' é inválido.');
             return;
         }
-        itens.push(codItem);
+        codItens.push(item);
         c++;
     };
 
     // Validação Item Extra - Chantily
-    let valItem2 = itens.indexOf("chantily");
+    let valItem2 = codItens.indexOf("chantily");
     if (valItem2 != "-1") {
-        let valItem2 = itens.indexOf("cafe");
+        let valItem2 = codItens.indexOf("cafe");
         if (valItem2 == "-1") {
             alert("Item extra não pode ser pedido sem o principal");
             console.log("Não é possivel pedir chantily sem pedir café.");
@@ -132,9 +132,9 @@ function getInfo() {
     }
 
     // Validação Item Extra - Chantily
-    let valItem3 = itens.indexOf("queijo");
+    let valItem3 = codItens.indexOf("queijo");
     if (valItem3 != "-1") {
-        let valItem3 = itens.indexOf("sanduiche");
+        let valItem3 = codItens.indexOf("sanduiche");
         if (valItem3 == "-1") {
             alert("Item extra não pode ser pedido sem o principal");
             console.log("Não é possivel pedir queijo sem pedir sanduiche.");
@@ -143,15 +143,15 @@ function getInfo() {
     }
 
     // Validação Preenchimento
-    let valItem4 = itens.indexOf("")
+    let valItem4 = codItens.indexOf("")
     if (valItem4 != "-1") {
         alert("Por favor, preencha todos os campos antes de finalizar a compra.");
         console.log("Não foram preenchidos todos os inputs disponíveis.")
         return;
     }
 
-    console.log("Tamanho do array Itens: "+itens.length);
-    console.log("Itens: "+itens);
+    console.log("Tamanho do array Itens: "+codItens.length);
+    console.log("Itens: "+codItens);
 
     // Validação de Quantidade
     let quantity = [];
@@ -171,16 +171,16 @@ function getInfo() {
         quantity.push(quantityItem);
         c++;
     };
-    alert("Length Quantity"+quantity.length);
     alert(quantity);
 
-    // Formatting Itens, Quantity e Array Checkout
-    let checkout = [];
-    c = 1;
+    // Formatando Array de Itens
+    let itens = [];
+    c = 0;
     while (c <= i) {
-        let order;
-        order = document.getElementById("getPed"+c).value+','+document.getElementById("getQtd"+c).value;
-        checkout.push(order);
+        let pedido;
+        pedido = codItens[c]+','+quantity[c];
+        itens.push(pedido);
+        console.log(itens);
         c++;
     }
     

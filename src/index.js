@@ -69,9 +69,11 @@ function validationCalculation() {
 
     // Recendo Forma de Pagamento
     let metodoDePagamento = document.getElementById("getPay").value;
-    let adjustment;
+    let ajuste;
 
     // Verificação - Método de Pagamento
+    console.log("===================")
+    console.log("Entrada de Dados")
     switch (true) {
         case (metodoDePagamento == ""):
             alert("Por favor, insira uma forma de pagamento.");
@@ -80,19 +82,19 @@ function validationCalculation() {
 
         // Credito
         case (metodoDePagamento == "credito"): 
-            adjustment = 0.03
+            ajuste = 1.03
             console.log("Pagamento Crédito.");
             break;
 
         // Debito
         case (metodoDePagamento == "debito"): 
-            adjustment = 0
+            ajuste = 0
             console.log("Pagamendo Débito.");
             break;
 
         // Dinheiro
         case (metodoDePagamento == "dinheiro"): 
-            adjustment = 0.05
+            ajuste = 0.95
             console.log("Pagamento Dinheiro.");
             break;
 
@@ -192,7 +194,7 @@ function validationCalculation() {
 
     // Calculo
     console.log("===================")
-    console.log("Inicio do Cálculo de Valor Bruto");
+    console.log("Cálculo de Valor Bruto");
     console.log("===================")
 
     // Variaveis e Definições
@@ -213,7 +215,7 @@ function validationCalculation() {
         codInd = itensRegistrados.indexOf(codigo[0]);
         console.log("Index do pedido no registro: "+codInd);
         itemPreco = parseFloat(precos[codInd]);
-        console.log("O preço do "+codigo[0]+" é "+itemPreco);
+        console.log("O preço do "+codigo[0]+" é R$"+itemPreco);
         quantidade = parseInt(codigo[1]);
         valor = quantidade*itemPreco;
         console.log("Valor total do "+codigo[0]+" é: R$"+valor)
@@ -223,6 +225,32 @@ function validationCalculation() {
         n++;
     }
 
+    // Cálculo do valor após ajustes
+    console.log("Ajustes");
+    console.log("===================");
+    console.log("O valor bruto é:"+soma);
+
+    switch (true) {
+        case (metodoDePagamento == "credito"):
+            vFinal = soma*ajuste;
+            console.log("Pagamento: "+metodoDePagamento+" | Ajuste: +"+((ajuste*100)-100)+"% | Valor Final: "+vFinal);
+            break;
+        
+        case (metodoDePagamento == "dinheiro"):
+            vFinal = soma*ajuste;
+            console.log("Pagamento: "+metodoDePagamento+" | Ajuste: -"+((ajuste*100)-100)+"% | Valor Final: "+vFinal);
+            break;
+        default:
+            console.log("Não é necessário Ajuste!")
+            break;
+    }
+
+    // Formatação do Valor Final
+    console.log("===================");
+    console.log("Formatação");
+    console.log("===================");
+
+    
 }
 
 

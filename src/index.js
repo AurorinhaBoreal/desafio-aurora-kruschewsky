@@ -104,15 +104,38 @@ function validationCalculation() {
 
     // Validação de Itens
     let codItens = [];
+    let valiArray = [];
+    let valiTeste1;
+    let valiTeste2;
+    let item;
+
     c = 1;
     while (c <= i) {
-        let item = document.getElementById("getPed"+c).value;
-        if (item == "" && i == "1") {
+
+        // Validação de Itens no Carrinho!! - Única e Multipla
+        while (c <= i) {
+            item = document.getElementById("getPed"+c).value;
+            if (item == "") {
+                valiArray.push("0");
+            } else { 
+                valiArray.push("1");
+                break; }
+            c++;
+        }
+        console.log(valiArray);
+        valiTeste1 = valiArray.indexOf("1");
+        valiTeste2 = valiArray.indexOf("0");
+        if (valiTeste1 == "-1") {
             alert("Não há itens no carrinho de compra!");
-            console.log("Não foram inseridos itens no carrinho.");
+                console.log("Não foram inseridos itens no carrinho.");
+                return;
+        } else if (valiTeste2 != "-1") {
+            alert("Por favor, preencha todos os campos antes de finalizar a compra.");
+            console.log("Não foram preenchidos todos os inputs disponíveis.")
             return;
         }
 
+        // Validação de Itens Validos
         let valItem1 = itensRegistrados.indexOf(item);
         if (valItem1 == "-1") {
             alert('Item inválido!');
@@ -143,14 +166,6 @@ function validationCalculation() {
             console.log("Não é possivel pedir queijo sem pedir sanduiche.");
             return;
         }
-    }
-
-    // Validação Preenchimento
-    let valItem4 = codItens.indexOf("")
-    if (valItem4 != "-1") {
-        alert("Por favor, preencha todos os campos antes de finalizar a compra.");
-        console.log("Não foram preenchidos todos os inputs disponíveis.")
-        return;
     }
 
     console.log("Tamanho do array Itens: "+codItens.length);
@@ -251,6 +266,8 @@ function validationCalculation() {
     console.log("===================");
     console.log("Formatação");
     console.log("===================");
+
+    let vFormatado;
 
     vFinal = vFinal.toFixed(2)
     vFormatado = vFinal.split(".");

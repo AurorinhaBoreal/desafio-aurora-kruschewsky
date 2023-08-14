@@ -230,6 +230,8 @@ function validationCalculation() {
     console.log("===================");
     console.log("O valor bruto é:"+soma);
 
+    let vFinal;
+    
     switch (true) {
         case (metodoDePagamento == "credito"):
             vFinal = soma*ajuste;
@@ -238,7 +240,7 @@ function validationCalculation() {
         
         case (metodoDePagamento == "dinheiro"):
             vFinal = soma*ajuste;
-            console.log("Pagamento: "+metodoDePagamento+" | Ajuste: -"+((ajuste*100)-100)+"% | Valor Final: "+vFinal);
+            console.log("Pagamento: "+metodoDePagamento+" | Ajuste: "+((ajuste*100)-100)+"% | Valor Final: "+vFinal);
             break;
         default:
             console.log("Não é necessário Ajuste!")
@@ -250,7 +252,12 @@ function validationCalculation() {
     console.log("Formatação");
     console.log("===================");
 
-    
+    vFinal = vFinal.toFixed(2)
+    vFormatado = vFinal.split(".");
+    console.log("O valor final do pedido ficou R$"+vFormatado[0]+","+vFormatado[1]);
+    alert("R$"+vFormatado[0]+","+vFormatado[1]);
+    console.log("===================");
+
 }
 
 

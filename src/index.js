@@ -176,7 +176,7 @@ function validationCalculation() {
     // Formatando Array de Itens
     let itens = [];
     c = 0;
-    while (c <= i) {
+    while (c <= i - 1) {
         let pedido;
         pedido = codItens[c]+','+quantity[c];
         itens.push(pedido);
@@ -191,29 +191,38 @@ function validationCalculation() {
     precos = [3, 1.5, 6.2, 6.5, 2, 7.25, 9.5, 7.5];
 
     // Calculo
-    console.log("Este Array de itens, está vindo de outra função!! :D" +itens);
+    console.log("===================")
+    console.log("Inicio do Cálculo de Valor Bruto");
+    console.log("===================")
 
-    tamanho = itens.length - 1;
-    alert("Length"+tamanho);
-    n = 1;
-    while (n <= tamanho) {
-        itens[n-1];
-        alert("Array:"+itens[n-1]);
-        let codigo;
-        let quantidade;
-        codigo = itens[n-1].split(",");
-        alert("Separados:"+codigo[0]+" e "+codigo[1]);
+    // Variaveis e Definições
+    let valor = 0;
+    let soma = 0;
+    let codigo;
+    let quantidade;
+    let codInd;
+    n = 0;
+
+    // Cáculo valor bruto
+    tamanho = itens.length;
+    while (n <= tamanho - 1) {
+        itens[n];
+        console.log(n+1+"° Input: "+itens[n]);
+        codigo = itens[n].split(",");
+        console.log("Pedido: "+codigo[0]+" | Quantidade: "+codigo[1]);
         codInd = itensRegistrados.indexOf(codigo[0]);
-        alert("Index:"+codInd);
+        console.log("Index do pedido no registro: "+codInd);
         itemPreco = parseFloat(precos[codInd]);
-        alert("O preço do "+codigo[0]+" é "+itemPreco);
+        console.log("O preço do "+codigo[0]+" é "+itemPreco);
         quantidade = parseInt(codigo[1]);
-        alert(quantidade);
-        let valor;
-        valor = valor + (quantidade*itemPreco);
-        alert(valor)
+        valor = quantidade*itemPreco;
+        console.log("Valor total do "+codigo[0]+" é: R$"+valor)
+        soma = soma+valor;
+        console.log(n+1+"° Input, o valor total é: R$"+soma);
+        console.log("===================")
         n++;
     }
+
 }
 
 

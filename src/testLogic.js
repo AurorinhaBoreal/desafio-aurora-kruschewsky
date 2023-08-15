@@ -86,7 +86,7 @@
             }
         }
 
-        // Validação Item Extra - Chantily
+        // Validação Item Extra - Queijo
         let valItem3 = codItens.indexOf("queijo");
         if (valItem3 != "-1") {
             let valItem3 = codItens.indexOf("sanduiche");

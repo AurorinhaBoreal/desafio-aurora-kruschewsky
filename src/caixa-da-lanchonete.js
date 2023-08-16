@@ -5,13 +5,11 @@ class CaixaDaLanchonete {
         let itensRegistrados = ["cafe", "chantily", "suco", "sanduiche", "queijo", "salgado", "combo1", "combo2"];
         let precosRegistrados = [3, 1.5, 6.2, 6.5, 2, 7.25, 9.5, 7.5];
         let lenItens = itens.length;
-        let separacao;
-        let arrayItens = [];
         let cont = 0;
         let resultado;
-        let ajuste;
 
         // Verificação - Método de Pagamento
+        let ajuste;
         switch (true) {
             // Credito
             case (metodoDePagamento == "credito"): 
@@ -40,29 +38,32 @@ class CaixaDaLanchonete {
             return resultado;
         }
 
-        // Verificação de Itens Válidos e Quantidade Válida
-        let valIdacaoItens;
-        let validacaoQtd;
+        // Populando arrayItens e arrayQtd
+        let arrayItens = [];
+        let arrayQtd = [];
+        let separacao;
         while (cont < lenItens) {
             separacao = itens[cont].split(",")
-            valIdacaoItens = itensRegistrados.indexOf(separacao[0]);
-            if (valIdacaoItens == "-1") {
+            arrayItens.push(separacao[0])
+            arrayQtd.push(separacao[1])
+            cont++;
+        }
+
+        // Verificação de Itens Válidos e Quantidade Válida
+        let validacaoItens;
+        let validacaoQtd;
+        cont = 0;
+        while (cont < lenItens) {
+            validacaoItens = itensRegistrados.indexOf(arrayItens[cont]);
+            if (validacaoItens == "-1") {
                 resultado = "Item inválido!"
                 return resultado;
             }
-            validacaoQtd = separacao[1];
+            validacaoQtd = arrayQtd[cont];
             if (validacaoQtd < "1") {
                 resultado = "Quantidade inválida!"
                 return resultado;
             }
-            cont++;
-        }
-
-        // Populando arrayItens
-        cont = 0;
-        while (cont < lenItens) {
-            separacao = itens[cont].split(",")
-            arrayItens.push(separacao[0])
             cont++;
         }
 
@@ -97,20 +98,19 @@ class CaixaDaLanchonete {
         }
 
         // Cálculos e Formatações
-        let codIndex;
-        let pedidoPreco;
-        let pedidoQuantidade;
         let valorPedido = 0;
         let valorTotal = 0;
+        let pedidoPreco;
+        let pedidoQuantidade;
+        let codIndex;
         let valorAjustado;
         let valorFormatado;
         cont = 0;
 
         while (cont < lenItens) {
-            separacao = itens[cont].split(",")
-            codIndex = itensRegistrados.indexOf(separacao[0]);
+            codIndex = itensRegistrados.indexOf(arrayItens[cont]);
             pedidoPreco = parseFloat(precosRegistrados[codIndex]);
-            pedidoQuantidade = parseInt(separacao[1]);
+            pedidoQuantidade = parseInt(arrayQtd[cont]);
             valorPedido = pedidoPreco*pedidoQuantidade;
             valorTotal = valorTotal+valorPedido;
             cont++;
@@ -124,7 +124,6 @@ class CaixaDaLanchonete {
 
         return resultado;
     }
-
 }
 
 export { CaixaDaLanchonete };
